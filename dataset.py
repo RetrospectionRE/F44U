@@ -61,7 +61,7 @@ def print_distribution(subset, class_labels, name):
         print(f"  类别 {cls}: {cnt} 样本 ({cnt/len(subset):.2%})")
 
 if __name__ == '__main__':
-    dataset_path = r'D:\U-NET_Origin\DATA'
+    dataset_path = r'.\DATA'
     full_dataset = CustomDataset(dataset_path)
 
     # 生成主类别标签列表
@@ -101,9 +101,9 @@ if __name__ == '__main__':
             for file in files:
                 f.write(f"{file}\n")
 
-    save_filenames_to_file(train_dataset, r'D:\U-NET_Origin\DATA\class\train_files.txt')
-    save_filenames_to_file(val_dataset, r'D:\U-NET_Origin\DATA\class\val_files.txt')
-    save_filenames_to_file(test_dataset, r'D:\U-NET_Origin\DATA\class\test_files.txt')
+    save_filenames_to_file(train_dataset, r'.\DATA\class\train_files.txt')
+    save_filenames_to_file(val_dataset, r'.\DATA\class\val_files.txt')
+    save_filenames_to_file(test_dataset, r'.\DATA\class\test_files.txt')
 
     # 打印分布时传入class_labels参数
     print_distribution(train_dataset, class_labels, "训练集")

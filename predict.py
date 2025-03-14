@@ -117,7 +117,7 @@ if __name__ == "__main__":
     net.to(device)
 
     # Load the model weights
-    model_path = r"D:\LUNWEN\data2025\RKN\best_model_epoch.pth"
+    model_path = r".\logs\best_model_epoch.pth"
     state_dict = torch.load(model_path, map_location=device)
     net.load_state_dict(state_dict, strict=False)
 
@@ -130,8 +130,8 @@ if __name__ == "__main__":
     ])
 
     mode = "dir_predict"
-    dir_origin_path = r"D:\jinzhan\outputs\restore1"
-    dir_save_path = r"D:\jinzhan\outputs\restore1"
+    dir_origin_path = r"文件夹目录"
+    dir_save_path = r"文件夹目录"
 
     if mode == "dir_predict":
         os.makedirs(dir_save_path, exist_ok=True)

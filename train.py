@@ -41,7 +41,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 learning_rate = 1e-2
 num_epochs = 300
 save_interval = 10
-save_path = r'D:\U-NET_Origin\logs'
+save_path = r'.\logs'
 os.makedirs(save_path, exist_ok=True)
 model_type = 'RKNet'  # 可选 'Unet', 'CBAMUnet', 'ResNet18_UNet'
 optimizer_name = 'AdamW'  # 可选 'SGD', 'Adam', 'AdamW'
@@ -80,7 +80,7 @@ val_label_transform = transforms.Compose([
 
 # 初始化数据集和数据加载器
 dataset = CustomDataset(
-    path=r"D:\U-NET_Origin\DATA",
+    path=r".\DATA",
     image_folder='image',
     label_folder='mask',
     transform=None,
@@ -88,8 +88,8 @@ dataset = CustomDataset(
 )
 
 # 创建训练集和验证集
-train_filenames = read_filenames(r'D:\U-NET_Origin\DATA\class\train_files.txt')
-val_filenames = read_filenames(r'D:\U-NET_Origin\DATA\class\val_files.txt')
+train_filenames = read_filenames(r'.\DATA\class\train_files.txt')
+val_filenames = read_filenames(r'.\DATA\class\val_files.txt')
 
 train_indices = [i for i, (img, _) in enumerate(dataset.pairs) if img in train_filenames]
 val_indices = [i for i, (img, _) in enumerate(dataset.pairs) if img in val_filenames]

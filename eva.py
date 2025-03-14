@@ -152,7 +152,7 @@ class Evaluator:
         plt.ylabel('True Positive Rate')
         plt.title('Receiver Operating Characteristic')
         plt.legend(loc='lower right')
-        plt.savefig(os.path.join('D:\\U-NET_Origin\\logs', 'roc_curve.png'))
+        plt.savefig(os.path.join('./logs', 'roc_curve.png'))
         plt.close()
 
     def plot_confusion_matrix(self, labels, preds):
@@ -162,19 +162,19 @@ class Evaluator:
         plt.xlabel('Predicted')
         plt.ylabel('True')
         plt.title('Confusion Matrix')
-        plt.savefig(os.path.join('D:\\U-NET_Origin\\logs', 'confusion_matrix.png'))
+        plt.savefig(os.path.join('./logs', 'confusion_matrix.png'))
         plt.close()
 
     def save_metrics(self, metrics):
-        metrics_path = os.path.join('D:\\U-NET_Origin\\logs', 'metrics.txt')
+        metrics_path = os.path.join('./logs', 'metrics.txt')
         with open(metrics_path, 'w') as f:
             for key, value in metrics.items():
                 f.write(f"{key}: {value:.4f}\n")
 
 if __name__ == '__main__':
     # 加载数据集
-    dataset_path = r'D:\U-NET_Origin\DATA'
-    val_filenames = r'D:\U-NET_Origin\DATA\class\test_files.txt'
+    dataset_path = r'.\DATA'
+    val_filenames = r'.\DATA\class\test_files.txt'
     val_filenames = read_filenames(val_filenames)
 
     # 创建验证集
@@ -192,7 +192,7 @@ if __name__ == '__main__':
 
     # 初始化模型
     model_type = 'RC101'  # 选择模型类型
-    model_path = r'D:\U-NET_Origin\logs\best_model_epoch.pth'
+    model_path = r'.\logs\best_model_epoch.pth'
 
     # 初始化评估器
     evaluator = Evaluator(model_type=model_type, model_path=model_path)

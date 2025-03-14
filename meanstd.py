@@ -55,7 +55,7 @@ data_transform = transforms.Compose([
 
 # Load the dataset and apply the transformation
 dataset = CustomDataset(
-    path=r'D:\U-NET_Origin\DATA',
+    path=r'.\DATA',
     image_folder='image',
     label_folder='mask',
     transform=data_transform,
